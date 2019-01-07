@@ -19,6 +19,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// === Connect MongoDB ========
+var mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
+mongoose.connect('mongodb://localhost/mean-angular5', { useNewUrlParser: true, promiseLibrary: require('bluebird') })
+    .then(() =>  console.log('connection succesful'))
+    .catch((err) => console.error(err));
+/// =========
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
