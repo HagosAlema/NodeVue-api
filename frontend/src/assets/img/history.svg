@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23 23">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-4 {
+        fill: none;
+      }
+
+      .cls-1, .cls-2 {
+        stroke: #fff;
+        stroke-width: 1.5px;
+      }
+
+      .cls-1 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-3 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="history" transform="translate(-0.047 2)">
+    <path id="패스_8" data-name="패스 8" class="cls-1" d="M15.211,9H9V3.7" transform="translate(2.547 0.8)"/>
+    <g id="사각형_233" data-name="사각형 233" class="cls-2" transform="translate(0.047 -2)">
+      <rect class="cls-3" width="23" height="23" rx="2"/>
+      <rect class="cls-4" x="0.75" y="0.75" width="21.5" height="21.5" rx="1.25"/>
+    </g>
+  </g>
+</svg>

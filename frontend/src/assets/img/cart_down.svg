@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 23.5 23.5">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #000;
+        stroke-linecap: round;
+        stroke-width: 1.5px;
+      }
+
+      .cls-2 {
+        stroke-linejoin: round;
+      }
+    </style>
+  </defs>
+  <g id="cart" transform="translate(-296.25 -45.25)">
+    <g id="shopping-cart" transform="translate(297 46)">
+      <path id="패스_4" data-name="패스 4" class="cls-1" d="M2,0A2,2,0,1,1,0,2,2,2,0,0,1,2,0Z" transform="translate(5 18)"/>
+      <path id="패스_3" data-name="패스 3" class="cls-1" d="M2,0A2,2,0,1,1,0,2,2,2,0,0,1,2,0Z" transform="translate(17 18)"/>
+      <path id="패스_1" data-name="패스 1" class="cls-2" d="M5.67,6H23l-1.68,8.39a2,2,0,0,1-2,1.61H8.75a2,2,0,0,1-2-1.74L5.23,2.74A2,2,0,0,0,3.25,1H1" transform="translate(-1 -1)"/>
+    </g>
+  </g>
+</svg>

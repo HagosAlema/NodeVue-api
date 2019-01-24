@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.563 9.9">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="brand" transform="translate(-165.585 -543.1)">
+    <path id="패스_3574" data-name="패스 3574" class="cls-1" d="M1.883-2.415h-3.81L-2.737,0H-4.852l3.615-9.9H1.238L4.852,0H2.707Zm-.51-1.53-.93-2.79-.45-1.5h-.03l-.42,1.47-.96,2.82Z" transform="translate(170.438 553)"/>
+    <path id="패스_3572" data-name="패스 3572" class="cls-1" d="M2.648-3.09h-5.3V-4.86h5.3Z" transform="translate(181 553)"/>
+    <path id="패스_3573" data-name="패스 3573" class="cls-1" d="M4.147-1.65V0H-4.088V-1.56L1.688-8.25H-3.967V-9.9H3.967v1.56L-1.808-1.65Z" transform="translate(192 553)"/>
+  </g>
+</svg>

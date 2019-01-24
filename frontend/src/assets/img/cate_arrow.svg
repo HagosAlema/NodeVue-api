@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 18">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #fff;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+    </style>
+  </defs>
+  <path id="패스_54" data-name="패스 54" class="cls-1" d="M13,23,4,14.5,13,6" transform="translate(-3.5 -5.5)"/>
+</svg>

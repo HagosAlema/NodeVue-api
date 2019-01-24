@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22.519 22.542">
+  <defs>
+    <style>
+      .cls-1, .cls-3 {
+        fill: none;
+      }
+
+      .cls-1 {
+        stroke: #222;
+        stroke-width: 1.5px;
+      }
+
+      .cls-2 {
+        stroke: none;
+      }
+    </style>
+  </defs>
+  <g id="search" transform="translate(-789.953 -84.275)">
+    <g id="타원_8" data-name="타원 8" class="cls-1" transform="translate(789.953 84.275)">
+      <ellipse class="cls-2" cx="9.514" cy="9.424" rx="9.514" ry="9.424"/>
+      <ellipse class="cls-3" cx="9.514" cy="9.424" rx="8.764" ry="8.674"/>
+    </g>
+    <line id="선_21" data-name="선 21" class="cls-1" x2="6.249" y2="5.98" transform="translate(805.704 100.295)"/>
+  </g>
+</svg>

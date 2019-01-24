@@ -1,6 +1,6 @@
 var mongoose = require('mongoose')
 
-var Test = require('../Models/')
+var Test = require('../models/')
 
 module.exports = {
     getTest: function (req, res, next) {

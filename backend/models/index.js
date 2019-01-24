@@ -4,4 +4,8 @@ var testSchema = new mongoose.Schema({
     name: String
 })
 
-module.exports = mongoose.model('Test', testSchema)
+var Test = mongoose.model('Test', testSchema)
+
+module.exports = {
+    Test
+}

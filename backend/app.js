@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var config = require('./config/index');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -22,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // === Connect MongoDB ========
 var mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
-mongoose.connect('mongodb://localhost/mean-angular5', { useNewUrlParser: true, promiseLibrary: require('bluebird') })
+mongoose.connect(config.DB, { useNewUrlParser: true, promiseLibrary: require('bluebird') }) // 'mongodb://localhost/mean-angular5'
     .then(() =>  console.log('connection succesful'))
     .catch((err) => console.error(err));
 /// =========
