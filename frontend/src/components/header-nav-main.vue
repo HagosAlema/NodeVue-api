@@ -9,6 +9,9 @@
         <swiper-slide>
           <a href="/resize" v-bind:class="{'workM':true, 'active':($route.path == '/resize')}" style="text-decoration: none; line-height: 24px">Image Resize<span></span></a>
         </swiper-slide>
+        <swiper-slide>
+          <a href="/product/add" v-bind:class="{'workM':true, 'active':($route.path == '/product/add')}" style="text-decoration: none; line-height: 24px">Add Product<span></span></a>
+        </swiper-slide>
       </swiper>
     </div>
   </div>

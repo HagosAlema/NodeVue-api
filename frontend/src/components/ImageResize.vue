@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="resize-content">
     <vue-avatar
       :rotation = "rotation"
       :borderRadius = "borderRadius"
@@ -79,6 +79,8 @@
       onImageReady: function () {
         this.scale = 1
         this.rotation = 0
+        var img = this.$refs.vueavatar.getImageScaled()
+        this.$refs.image.src = img.toDataURL()
       },
       saveClicked () {
         var img = this.$refs.vueavatar.getImageScaled()
@@ -89,5 +91,6 @@
 </script>
 
 <style scoped>
-
+  .resize-content {margin-bottom: 120px;}
+  .resize-content img {box-shadow:0 3px 6px 0 #727272; width: 300px}
 </style>

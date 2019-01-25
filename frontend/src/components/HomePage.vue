@@ -3,13 +3,13 @@
     <div>
       <h1 style="margin-top: -35px; margin-left: -8px;color: #c113b9; font-family: cursive; position: fixed;  top: 35px; width: 100%; background: #000">TRAVELLERS</h1>
     </div>
-    <header-nav style="position: fixed; top: 50px; overflow: hidden; width: 100%; background-color: #000"></header-nav>
+    <header-nav style="position: fixed; top: 50px; overflow: hidden; width: 100%; background-color: #000; left: 0px"></header-nav>
 
     <keep-alive>
-      <router-view style="margin-top: 120px; margin-left: 10px; margin-right: 10px;"></router-view>
+      <router-view style="margin-top: 120px; margin-left: 0px;"></router-view>
     </keep-alive>
 
-    <footer-nav></footer-nav>
+    <footer-nav style="margin-top: 60px"></footer-nav>
   </div>
 </template>
 

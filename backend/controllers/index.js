@@ -82,5 +82,35 @@ module.exports = {
             }
         })
 
-    }
+    },
+    createProduct: function (req, res) {
+        console.log(req.body)
+        models.TestProduct.create(
+            {
+                name: req.body.data.name
+            },
+            function (err, result) {
+                if (err) {
+                    res.status(400).send('Unable to create list')
+                }
+                res.status(200).json(result)
+            }
+        )
+    },
+    getProduct: function (req, res) {
+
+        const perPage = req.query.limit ? req.query.limit : 20;
+        const page = req.query.offset ? req.query.offset : 50;
+        console.log('offset = ' + page)
+
+        models.TestProduct.find()
+            // .limit(1*perPage)
+            // .skip(1*page)
+            .exec(function (err, result) {
+                if (err) {
+                    return (new Error(err))
+                }
+                res.json({allList:result})
+            })
+    },
 }

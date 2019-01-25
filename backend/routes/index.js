@@ -12,5 +12,7 @@ router.get('/list/all', indexCtrl.getList);
 router.post('/list/add', indexCtrl.createList);
 router.post('/list/update/:id', indexCtrl.updateList);
 router.get('/list/delete/:id', indexCtrl.deleteList);
+router.post('/product/add', indexCtrl.createProduct)
+router.get('/product/all', indexCtrl.getProduct)
 
 module.exports = router;

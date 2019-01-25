@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import HomePage from '@/components/HomePage'
 import MainPage from '@/components/MainPage'
 import ImageResize from '@/components/ImageResize'
+import Addproduct from '@/components/AddProduct'
 // import Test from '@/components/Test'
 
 Vue.use(Router)
@@ -31,6 +32,11 @@ export default new Router({
           path: '/resize',
           name: 'resize',
           component: ImageResize // 메인 페이지
+        },
+        {
+          path: '/product/add',
+          name: 'add-product',
+          component: Addproduct // 메인 페이지
         }
       ]
     }
