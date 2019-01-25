@@ -3,7 +3,8 @@
       <div class="add">
         <label class="label">Product: </label>
         <input type="text" class="product-text" v-model="productName" placeholder="Type Product Name"/>
-        <button class="product-btn" @click="addProduct">Add</button>
+        <button v-if="productName === null | productName === ''" class="product-btn-disabled" @click="addProduct" disabled>Add</button>
+        <button v-else class="product-btn" @click="addProduct">Add</button>
       </div>
       <div class="prod-content">
         <table class="prod_tbl">
@@ -13,7 +14,7 @@
             <th>Image</th>
           </tr>
           <tr class="prod_td" v-for="(item, index) in products" :key="index" :class="index % 2 === 0 ? 'col1' :'col2' ">
-              <td>{{index}}</td>
+              <td>{{products.length - index}}</td>
               <td>{{item.name}}</td>
               <td><img src="../assets/img/infinity.png" style="height: 50px;"/></td>
           </tr>
@@ -36,7 +37,7 @@ import axios from 'axios'
     name: 'AddProduct',
     data () {
       return {
-        productName: '',
+        productName: null,
         data: [],
         limit: 50,
         offset: 0
@@ -57,21 +58,23 @@ import axios from 'axios'
         var data = {
           name: this.productName
         }
-        this.productName = ''
-        axios.post(`${url}/product/add`, {data: data})
-          .then((result) => {
-            console.log(result.data)
-            var data = {
-              name: result.data.name,
-              __v: result.data.__v,
-              _id: result.data._id
-            }
-            self.data.push(data)
-            // this.brandCList = result.data.data.brandCList
-            // this.bestList = result.data.data.bestItemList
-            // this.brandList = result.data.data.brandList
+        if(this.productName !== null | this.productName !== ''){
+          axios.post(`${url}/product/add`, {data: data})
+            .then((result) => {
+              console.log(result.data)
+              var data = {
+                name: result.data.name,
+                __v: result.data.__v,
+                _id: result.data._id
+              }
+              self.data.push(data)
+              // this.brandCList = result.data.data.brandCList
+              // this.bestList = result.data.data.bestItemList
+              // this.brandList = result.data.data.brandList
             })
-        // self.getProduct()
+          // self.getProduct()
+          this.productName = null
+        }
       },
       getProduct: function () {
         var data = {
@@ -106,6 +109,7 @@ import axios from 'axios'
 <style scoped>
   .add .product-text {border: solid 1px; border-radius: 4px; line-height: 25px; min-width: 40%; font-size: 14px; font-weight: bold;}
   .add .product-btn {background-color: dodgerblue; line-height: 24px; border-radius: 5px; width: 50px; vertical-align: middle}
+  .add .product-btn-disabled {background-color: #f2f2f2; line-height: 24px; border-radius: 5px; width: 50px; vertical-align: middle}
 
   table {width: 100%; margin-top: 5%;}
   .prod-content .prod_tbl .prod_th {background-color: #DCDCDC; width: 100%; line-height: 50px }
