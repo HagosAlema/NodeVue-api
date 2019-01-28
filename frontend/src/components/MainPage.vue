@@ -64,9 +64,9 @@ export default {
       var offset1 = b.scrollTop + window.innerHeight
       var height = d.offsetHeight - 5000
 
-      console.log('offset1 = ' + offset1)
-      console.log('offset = ' + offset)
-      console.log('height = ' + height)
+      // console.log('offset1 = ' + offset1)
+      // console.log('offset = ' + offset)
+      // console.log('height = ' + height)
 
       if (offset >= height || offset1 >= height) {
         console.log('At the bottom')

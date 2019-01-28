@@ -113,4 +113,16 @@ module.exports = {
                 res.json({allList:result})
             })
     },
+    deleteProduct: function (req, res) {
+        // console.log('Delete Entered \n ID: ' + req.params.id)
+        var id = req.params.id
+        models.TestProduct.findByIdAndRemove({_id: id}, { $set: req.body }, function (err, result) {
+            if (err) {
+                console.log('Error' + err)
+                return new Error(err + 'Item was not deleted')
+            }
+            console.log(result)
+            res.json(result)
+        })
+    },
 }
