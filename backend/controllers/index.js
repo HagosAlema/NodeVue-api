@@ -1,12 +1,24 @@
-var mongoose = require('mongoose')
-
-var redisClient = require('redis').createClient;
-var redis = redisClient(6379, 'localhost');
+// var redisClient = require('redis').createClient;
+// var redis = redisClient(6379, 'localhost');
+var multer = require('multer')
 
 var models = require('../models/')
 
-module.exports = {
-    getList: function (req, res) {
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        console.log('Destination Entered')
+        cb(null, './public/images/scaled/')
+    },
+    filename: function (req, file, cb) {
+        console.log('filename Entered')
+        cb(null, Date.now('yyyy-mm-dd')+'.png')
+    }
+})
+// var upload = multer({storage: storage})
+var upload = multer({dest: './public/image/scaled'})
+
+// module.exports = {
+   function getList(req, res) {
 
         const perPage = req.query.limit ? req.query.limit : 20;
         const page = req.query.offset ? req.query.offset : 50;
@@ -18,17 +30,17 @@ module.exports = {
        //     res.json({allList:result})
        // })
 
-        redis.get('name', function (err, response) {
-            if (err) {
-                console.log('No value found in redis')
-            } else {
-                if (response === null) {
-                    console.log('No value found')
-                }else {
-                    console.log(response)
-                }
-            }
-        })
+        // redis.get('name', function (err, response) {
+        //     if (err) {
+        //         console.log('No value found in redis')
+        //     } else {
+        //         if (response === null) {
+        //             console.log('No value found')
+        //         }else {
+        //             console.log(response)
+        //         }
+        //     }
+        // })
         models.Test.find()
             .limit(1*perPage)
             .skip(1*page)
@@ -38,8 +50,9 @@ module.exports = {
                 }
                 res.json({allList:result})
             })
-    },
-    createList: function (req, res) {
+    }
+
+    function createList(req, res) {
         console.log(req.body.data.name);
         models.Test.create(
             {
@@ -52,8 +65,9 @@ module.exports = {
                 res.status(200).json(result)
             }
             )
-    },
-    deleteList: function (req, res) {
+    }
+
+    function deleteList(req, res) {
         var id = req.params.id
         models.Test.findByIdAndRemove(id, function (err, result) {
             if (err) {
@@ -61,8 +75,9 @@ module.exports = {
             }
             res.json('Item was deleted successfully')
         })
-    },
-    updateList: function (req, res) {
+    }
+
+    function updateList(req, res) {
         var id = req.params.id
         models.Test.findById(id, function (err, result) {
             if(err) {
@@ -82,8 +97,8 @@ module.exports = {
             }
         })
 
-    },
-    createProduct: function (req, res) {
+    }
+    function createProduct (req, res) {
         console.log(req.body)
         models.TestProduct.create(
             {
@@ -96,8 +111,9 @@ module.exports = {
                 res.status(200).json(result)
             }
         )
-    },
-    getProduct: function (req, res) {
+    }
+
+    function getProduct (req, res) {
 
         const perPage = req.query.limit ? req.query.limit : 20;
         const page = req.query.offset ? req.query.offset : 50;
@@ -112,8 +128,9 @@ module.exports = {
                 }
                 res.json({allList:result})
             })
-    },
-    deleteProduct: function (req, res) {
+    }
+
+    function deleteProduct (req, res) {
         // console.log('Delete Entered \n ID: ' + req.params.id)
         var id = req.params.id
         models.TestProduct.findByIdAndRemove({_id: id}, { $set: req.body }, function (err, result) {
@@ -124,5 +141,36 @@ module.exports = {
             console.log(result)
             res.json(result)
         })
-    },
+    }
+
+function uploadImage (req, res){
+    console.log('Entered')
+    console.log(req.file)
+    // console.log(req.file)
+    /**
+     *
+     * Before storing the paths, check if there is a valid path.
+     */
+    var paths = req.file;
+    console.log('File uploaded successfully.')
+    // console.log(req.files)
+    // for (i in req.files) {
+    //     // path1.push('' + __basedir + req.files[i].destination + req.files[i].filename + '')
+    //     path1.push(req.files[i].filename)
+    // }
+    res.json(paths)
+}
+
+// }
+
+module.exports = {
+    getList,
+    createList,
+    deleteList,
+    updateList,
+    createProduct,
+    getProduct,
+    deleteProduct,
+    upload,
+    uploadImage
 }

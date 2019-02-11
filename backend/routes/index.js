@@ -5,7 +5,7 @@ var indexCtrl = require('../controllers/index')
 
 /* GET home page. */
 // ====== Test Routes ======
-router.get('/', testCtrl.getTest);
+router.get('/test', testCtrl.getTest);
 
 // ===== index routes ======
 router.get('/list/all', indexCtrl.getList);
@@ -15,5 +15,6 @@ router.get('/list/delete/:id', indexCtrl.deleteList);
 router.delete('/product/delete/:id', indexCtrl.deleteProduct);
 router.post('/product/add', indexCtrl.createProduct)
 router.get('/product/all', indexCtrl.getProduct)
+router.post('/product/upload', indexCtrl.upload.single('scaledImage'), indexCtrl.uploadImage);
 
 module.exports = router;

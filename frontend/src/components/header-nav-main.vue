@@ -12,6 +12,9 @@
         <swiper-slide>
           <a href="/product/add" v-bind:class="{'workM':true, 'active':($route.path == '/product/add')}" style="text-decoration: none; line-height: 24px">Add Product<span></span></a>
         </swiper-slide>
+        <swiper-slide>
+          <a href="/login" v-bind:class="{'workM':true, 'active':($route.path == '/login')}" style="text-decoration: none; line-height: 24px">Login<span></span></a>
+        </swiper-slide>
       </swiper>
     </div>
   </div>
@@ -45,7 +48,7 @@ export default {
   data () {
     return {
       swipervisual: {
-        slidesPerView: 1,
+        slidesPerView: 4,
         pagination: {
           el: '.swiper-pagination'
         }

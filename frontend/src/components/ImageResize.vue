@@ -1,6 +1,8 @@
 <template>
   <div class="resize-content">
     <vue-avatar
+      :width="400"
+      :height="400"
       :rotation = "rotation"
       :borderRadius = "borderRadius"
       :scale = "scale"
@@ -48,9 +50,10 @@
       />
     </label>
     <br>
-    <button v-on:click="saveClicked">Get image</button>
+    <button v-on:click="saveClicked">Save Image</button>
     <br>
     <img ref="image">
+    <!--<input type="file" ref="testImage" @change="onImageReady"/>-->
   </div>
 </template>
 
@@ -58,6 +61,7 @@
 /* eslint-disable */
   import {VueAvatar} from 'vue-avatar-editor-improved'
   import {VueAvatarEditor} from 'vue-avatar-editor-improved'
+  import axios from 'axios'
 
   export default {
     components: {
@@ -71,7 +75,8 @@
         rotation: 0,
         scale: 1,
         border: 1,
-        color: [0, 0, 72]
+        color: [0, 0, 72],
+        image: ''
       }
     },
     name: "ImageResize",
@@ -80,11 +85,26 @@
         this.scale = 1
         this.rotation = 0
         var img = this.$refs.vueavatar.getImageScaled()
-        this.$refs.image.src = img.toDataURL()
+        // console.log(this.$refs.testImage)
+        // console.log(this.$refs.vueavatar)
+        // console.log(this.$refs.vueavatar.getImageScaled().toDataURL('image/png'))
+        this.$refs.image.src = img.toDataURL('image/png')
       },
       saveClicked () {
         var img = this.$refs.vueavatar.getImageScaled()
         this.$refs.image.src = img.toDataURL()
+        var img_b64 = img.toDataURL('image/png')
+        var png = img_b64.split(',')[1];
+        var the_file = new Blob([window.atob(png)],  {type: 'image/png', encoding: 'utf-8'});
+        this.image = the_file
+        console.log(the_file.type)
+        var formData = new FormData()
+        formData.append('scaledImage', this.image)
+        var self = this
+        axios.post('/server/product/upload', formData)
+          .then(function (result) {
+            console.log(result)
+          })
       }
     }
   }
